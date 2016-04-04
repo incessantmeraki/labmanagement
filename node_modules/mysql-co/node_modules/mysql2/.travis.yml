@@ -1,0 +1,9 @@
+language: node_js
+before_script:
+  - mysql -e 'create database if not exists test;'
+node_js:
+  - '0.8'
+  - '0.10'
+  - '0.12'
+  - '1.0'
+  - '2.3'
