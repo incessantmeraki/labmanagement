@@ -124,10 +124,14 @@ app.use(function* authSecureRoutes(next) {
     }
 });
 
+app.use(require('./routes/index-routes.js'));
+app.use(require('./routes/admin-routes.js'));
+
+/*
 app.use(function*(){
     this.body='successfully logged in';
 });
-
+*/
 
 /*
 // ------------ routing-----------------------//
