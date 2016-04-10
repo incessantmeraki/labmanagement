@@ -60,7 +60,7 @@ Question.getBy = function*(field, value) {
  */
 Question.insert = function*(values) {
     // validation - somewhat artificial example serves to illustrate principle
-    if (values.question==null) {
+    if (values.Question==null) {
         throw ModelError(403, 'Question must be supplied');
     }
 
@@ -80,7 +80,7 @@ Question.insert = function*(values) {
             case 'ER_DUP_ENTRY':
                 throw ModelError(409, e.message); // Conflict
             default:
-f                throw ModelError(500, e.message); // Internal Server Error
+                throw ModelError(500, e.message); // Internal Server Error
         }
     }
 };
@@ -95,7 +95,7 @@ f                throw ModelError(500, e.message); // Internal Server Error
  */
 Question.update = function*(id, values) {
      // validation - somewhat artificial example serves to illustrate principle
-    if (values.question==null) {
+    if (values.Question==null) {
         throw ModelError(403, 'Question must be supplied');
     }
 

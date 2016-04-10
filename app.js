@@ -94,15 +94,15 @@ app.use(handlebars({
 }));
 
 // clean up post data - trim & convert blank fields to null
-app.use(function* cleanPost(next) {
-    if (this.request.body !== undefined) {
-        for (const key in this.request.body) {
-            this.request.body[key] = this.request.body[key].trim();
-            if (this.request.body[key] == '') this.request.body[key] = null;
-        }
-    }
-    yield next;
-});
+// app.use(function* cleanPost(next) {
+//     if (this.request.body !== undefined) {
+//         for (const key in this.request.body) {
+//             this.request.body[key] = this.request.body[key].trim();
+//             if (this.request.body[key] == '') this.request.body[key] = null;
+//         }
+//     }
+//     yield next;
+// });
 
 //flash messages
 app.use(flash());

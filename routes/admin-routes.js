@@ -10,6 +10,7 @@ const admin = require('../handlers/admin.js')
 const students = require('../handlers/admin-students.js')
 const teachers = require('../handlers/admin-teachers.js')
 const subjects = require('../handlers/admin-subjects.js')
+const questions = require('../handlers/admin-questions.js')
 const batches = require('../handlers/admin-batches.js')
 
 
@@ -27,38 +28,49 @@ router.get('/admin/students/:id/delete',  students.delete);
 router.post('/admin/students/:id/delete', students.processDelete); 
 router.get('/admin/students/:id/edit',    students.edit);         
 router.post('/admin/students/:id/edit',   students.processEdit); 
-/*
+
  
+ //routes for teachers
+router.get('/admin/teachers',             teachers.list);          
+router.get('/admin/teachers/add',         teachers.add);           
+router.post('/admin/teachers/add',        teachers.processAdd);   
+router.get('/admin/teachers/:id',         teachers.view); 
+router.get('/admin/teachers/:id/delete',  teachers.delete);        
+router.post('/admin/teachers/:id/delete', teachers.processDelete); 
+router.get('/admin/teachers/:id/edit',    teachers.edit);         
+router.post('/admin/teachers/:id/edit',   students.processEdit); 
 
-//routes for teachers
-router.get('/admin/teachers',             admin.list);          
-router.get('/admin/teachers/add',         admin.add);           
-router.get('/admin/teachers/:id',         admin.view);          
-router.get('/admin/teachers/:id/edit',    admin.edit);          
-router.get('/admin/teachers/:id/delete',  admin.delete);        
-router.post('/admin/teachers/add',        admin.processAdd);    
-router.post('/admin/teachers/:id/edit',   admin.processEdit);   
-router.post('/admin/teachers/:id/delete', admin.processDelete); 
+//routes for subjects
+router.get('/admin/subjects',             subjects.list);          
+router.get('/admin/subjects/add',         subjects.add);           
+router.post('/admin/subjects/add',        subjects.processAdd);    
+router.get('/admin/subjects/:id/edit',    subjects.edit);          
+router.post('/admin/subjects/:id/edit',   subjects.processEdit);   
+router.get('/admin/subjects/:id',         subjects.view);          
+router.get('/admin/subjects/:id/delete',  subjects.delete);       
+     
 
-//routes for Subjects
-router.get('/admin/subjects',             admin.list);          
-router.get('/admin/subjects/add',         admin.add);           
-router.get('/admin/subjects/:id',         admin.view);          
-router.get('/admin/subjects/:id/edit',    admin.edit);          
-router.get('/admin/subjects/:id/delete',  admin.delete);       
-router.post('/admin/subjects/add',        admin.processAdd);    
-router.post('/admin/subjects/:id/edit',   admin.processEdit);   
-router.post('/admin/subjects/:id/delete', admin.processDelete); 
+// introducing routes of questions
+router.get('/admin/subjects/:id/questions/add', subjects.addQuestions);          
+router.post('/admin/subjects/:id/questions/add', subjects.processAddQuestions);     
+router.get('/admin/questions/:id/edit', questions.edit);
+router.post('/admin/questions/:id/edit', questions.processEdit);
+router.get('/admin/questions/:id/delete', questions.delete);
+
+
 
 //routes for batches
-router.get('/admin/batches',             admin.list);          
-router.get('/admin/batches/add',         admin.add);           
-router.get('/admin/batches/:id',         admin.view);          
-router.get('/admin/batches/:id/edit',    admin.edit);          
-router.get('/admin/batches/:id/delete',  admin.delete);        
-router.post('/admin/batches/add',        admin.processAdd);    
-router.post('/admin/batches/:id/edit',   admin.processEdit);   
-router.post('/admin/batches/:id/delete', admin.processDelete); 
+router.get('/admin/subjects/:id/batches/add', subjects.addBatches);          
+router.post('/admin/subjects/:id/batches/add', subjects.processAddBatches);     
+router.get('/admin/batches/:id',         batches.view);          
+router.get('/admin/batches/:bid/delete/student/:sid',  batches.deleteStudent);        
+router.get('/admin/batches/:bid/edit/teacher/:tid',    batches.editTeacher);          
+router.post('/admin/batches/:bid/edit/teacher/:tid',   batches.processEditTeacher);   
+router.get('/admin/batches/:id/add/student',    batches.addStudents);          
+router.post('/admin/batches/:id/add/student',batches.processAddStudents)
+router.get('/admin/batches/:id/delete',batches.delete)
+/*
+
 */
 module.exports = router.middleware();
 

@@ -80,7 +80,7 @@ Teacher.insert = function*(values) {
             case 'ER_DUP_ENTRY':
                 throw ModelError(409, e.message); // Conflict
             default:
-f                throw ModelError(500, e.message); // Internal Server Error
+                throw ModelError(500, e.message); // Internal Server Error
         }
     }
 };

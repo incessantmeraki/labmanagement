@@ -1,0 +1,28 @@
+<!doctype html>
+<head>
+  <title>Admin's index page</title>
+</head>
+<body>
+  {{>adminnavpartial}}
+  <br>
+
+  <hr>
+  <ul>
+    <li> <a href="teachers/add" /> Add  </a> </li>
+  </ul>
+
+  <table>
+
+    {{#teachers}}
+    <tr id="{{TeacherId}}">
+      <td><a href="/admin/teachers/{{TeacherId}}">{{Firstname}}</a></td>
+      <td><a href="/admin/teachers/{{TeacherId}}">{{Lastname}}</a></td>
+      <td><a href="/admin/teachers/{{TeacherId}}/edit"> Edit </a></td>
+      <td><a href="/admin/teachers/{{TeacherId}}/delete"> Delete </a></td>
+    </tr>
+
+    {{/teachers}}
+  </table>
+</body>
+</html>
+

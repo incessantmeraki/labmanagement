@@ -1,0 +1,24 @@
+<!doctype html>
+<head>
+  <title>Admin's index page</title>
+</head>
+<body>
+ {{>adminnavpartial}}
+ <br>
+ <hr>
+
+<form method="post">
+  
+<h2> Students </h2>
+<label>
+{{#students}}
+<input type="checkbox" name="StudentId" value="{{StudentId}}"/> {{Firstname}} {{Lastname}} <br> 
+{{/students}}
+</label> 
+<br>
+<input type="submit" value="Add"/>
+</form>
+
+</body>
+</html>
+

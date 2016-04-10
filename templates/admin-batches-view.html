@@ -1,0 +1,42 @@
+<!doctype html>
+<head>
+  <title>Admin's index page</title>
+</head>
+<body>
+  {{>adminnavpartial}}
+
+  <hr>
+<h1> Teacher </h1>
+ {{#if teachers}}
+  <ul>
+  {{#teachers}}
+    <li> {{Teachername}}  <a href="/admin/batches/{{../BatchId}}/edit/teacher/{{TeacherId}}"> Edit </a>
+    </li>
+  {{/teachers}}
+  </ul>
+{{/if}}
+  
+
+<h1> Students </h1>
+<p> <a href="/admin/batches/{{BatchId}}/add/student"> Add </a> </p>
+<br>
+{{#if students}}
+
+  <table>
+ {{#students}}
+
+
+    <tr >
+      <td>{{Studentname}}</td>
+      <td><a href="/admin/batches/{{../BatchId}}/delete/student/{{StudentId}}/"> Delete </a></td>
+
+    </tr>
+  {{/students}}
+  </table>
+{{/if}}
+
+
+
+</body>
+</html>
+

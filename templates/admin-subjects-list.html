@@ -1,0 +1,29 @@
+<!doctype html>
+<head>
+  <title>Admin's index page</title>
+</head>
+<body>
+  {{>adminnavpartial}}
+  <br>
+
+
+  <hr>
+  <ul>
+    <li> <a href="/admin/subjects/add" /> Add  </a> </li>
+  </ul>
+  
+
+  <table>
+
+    {{#subjects}}
+    <tr id="{{SubjectId}}">
+      <td><a href="/admin/subjects/{{SubjectId}}">{{Subjectname}}</a></td>
+      <td><a href="/admin/subjects/{{SubjectId}}/edit"> Edit </a></td>
+      <td><a href ="/admin/subjects/{{SubjectId}}/delete/"> Delete </a></td>
+    </tr>
+
+    {{/subjects}}
+  </table>
+</body>
+</html>
+

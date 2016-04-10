@@ -48,7 +48,7 @@ const students = module.exports = {};
     if (this.passport.user.Role != 'admin') return this.redirect('/');
 
     try {
-        const userVals = {Email:this.request.body.Email,Password:this.request.body.Email}
+        const userVals = {Email:this.request.body.Email,Password:this.request.body.Email,Role:'students'};
         const userId = yield User.insert(userVals);
         const studentsVals ={
             Firstname:this.request.body.Firstname,
@@ -74,15 +74,7 @@ const students = module.exports = {};
  students.view = function*() {
     const student = yield Student.get(this.params.id);
     if (!student) this.throw(404, 'Student not found');
-    /*
-    // batch membership
-    const sql = `Select TeamMemberId, TeamId, Name
-                 From TeamMember Inner Join Team Using (TeamId)
-                 Where MemberId = ?`;
-    const result = yield this.db.query(sql, this.params.id);
-    const teams = result[0];
-    */
-
+  
     //Getting login details
     const sql = `Select Email, Password 
     From User 
@@ -141,31 +133,13 @@ students.edit = function*() {
     // member details
     let student = yield Student.get(this.params.id);
     if (!student) this.throw(404, 'Member not found');
-    /*
-    if (this.flash.formdata) member = this.flash.formdata; // failed validation? fill in previous values
-
-    // team membership
-    const sqlT = `Select TeamMemberId, TeamId, Name
-                  From TeamMember Inner Join Team Using (TeamId)
-                  Where MemberId = ?
-                  Order By Name`;
-    const resultT = yield this.db.query(sqlT, this.params.id);
-    member.memberOfTeams = resultT[0];
-
-    // teams this member is not a s of (for add picklist)
-    let teams = member.memberOfTeams.map(function(t) { return t.TeamId; }); // array of id's
-    if (teams.length == 0) teams = [0]; // dummy to satisfy sql 'in' syntax
-    const sqlM = `Select TeamId, Name From Team Where TeamId Not In (${teams.join(',')}) Order By Name`;
-    const resultM = yield this.db.query(sqlM, teams);
-    member.notMemberOfTeams = resultM[0];
-    */
 
     const context = student;
     yield this.render('templates/admin-students-edit', context);
 };
 
 /**
- * POST /members/:id/edit - process edit-member
+ * POST /students/:id/edit - process edit-member
  */
 students.processEdit = function*() {
     if (this.passport.user.Role != 'admin') return this.redirect('/');

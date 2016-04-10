@@ -1,0 +1,61 @@
+<!doctype html>
+<head>
+  <title>Admin's index page</title>
+</head>
+<body>
+  {{>adminnavpartial}}
+
+  <hr>
+<h1> Questions </h1>
+
+{{#if SubjectId }}  
+  <ul>
+    <li> <a href="/admin/subjects/{{SubjectId}}/questions/add" /> Add  </a> </li>
+  </ul>
+{{/if}}  
+
+<br>
+{{#if questions}}
+
+  <table>
+ {{#questions}}
+
+
+    <tr >
+      <td>{{Question}}</td>
+      <td><a href ="/admin/questions/{{QuestionId}}/edit/"> Edit </a></td>
+      <td><a href ="/admin/questions/{{QuestionId}}/delete/"> Delete </a></td>
+
+    </tr>
+  {{/questions}}
+  </table>
+{{/if}}
+
+<br>
+<h1> Batches </h1>
+
+{{#if SubjectId }}  
+  <ul>
+    <li> <a href="/admin/subjects/{{SubjectId}}/batches/add" /> Add  </a> </li>
+  </ul>
+{{/if}} 
+
+<br>
+{{#if batches}}
+
+ {{#batches}}
+  <table>
+
+    <tr >
+      <td><a href ="/admin/batches/{{BatchId}}"> Batch {{BatchId}}</td>
+      <td><a href ="/admin/batches/{{BatchId}}/delete/"> Delete </a></td>
+
+    </tr>
+
+  {{/batches}}
+  </table>
+{{/if}}
+
+</body>
+</html>
+
