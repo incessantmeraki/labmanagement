@@ -1,0 +1,24 @@
+<!doctype html>
+<head>
+  <title>Admin's index page</title>
+</head>
+<body>
+  {{>studentnavpartial}}
+  <br>
+
+
+  <hr>
+  
+
+  <table>
+
+    {{#subjects}}
+    <tr id="{{SubjectId}}">
+      <td><a href="/student/{{../StudentId}}/subjects/{{SubjectId}}">{{Subjectname}}</a></td>
+    </tr>
+
+    {{/subjects}}
+  </table>
+</body>
+</html>
+

@@ -48,7 +48,7 @@ const students = module.exports = {};
     if (this.passport.user.Role != 'admin') return this.redirect('/');
 
     try {
-        const userVals = {Email:this.request.body.Email,Password:this.request.body.Email,Role:'students'};
+        const userVals = {Email:this.request.body.Email,Password:this.request.body.Email,Role:'student'};
         const userId = yield User.insert(userVals);
         const studentsVals ={
             Firstname:this.request.body.Firstname,

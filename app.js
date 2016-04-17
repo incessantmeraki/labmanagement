@@ -58,33 +58,33 @@ app.use(passport.session());
 
 
 //Look later
-/* handle thrown or uncaught exceptions anywhere down the line
-app.use(function* handleErrors(next) {
-    try {
+ // handle thrown or uncaught exceptions anywhere down the line
+// app.use(function* handleErrors(next) {
+//     try {
 
-        yield next;
+//         yield next;
 
-    } catch (e) {
-        let context = null;
-        this.status = e.status || 500;
-        switch (this.status) {
-            case 404: // Not Found
-                context = { msg: e.message=='Not Found'?null:e.message };
-                yield this.render('templates/404-not-found', context);
-                break;
-            case 403: // Forbidden
-            case 409: // Conflict
-                yield this.render('templates/400-bad-request', e);
-                break;
-            case 500: // Internal Server Error
-                context = app.env=='production' ? {} : { e: e };
-                yield this.render('templates/500-internal-server-error', context);
-                this.app.emit('error', e, this); // github.com/koajs/examples/blob/master/errors/app.js
-                break;
-        }
-    }
-});
-*/
+//     } catch (e) {
+//         let context = null;
+//         this.status = e.status || 500;
+//         switch (this.status) {
+//             case 404: // Not Found
+//                 context = { msg: e.message=='Not Found'?null:e.message };
+//                 yield this.render('templates/404-not-found', context);
+//                 break;
+//             case 403: // Forbidden
+//             case 409: // Conflict
+//                 yield this.render('templates/400-bad-request', e);
+//                 break;
+//             case 500: // Internal Server Error
+//                 context = app.env=='production' ? {} : { e: e };
+//                 yield this.render('templates/500-internal-server-error', context);
+//                 this.app.emit('error', e, this); // github.com/koajs/examples/blob/master/errors/app.js
+//                 break;
+//         }
+//     }
+// });
+
 
 // handlebars templating
 app.use(handlebars({
@@ -124,8 +124,9 @@ app.use(function* authSecureRoutes(next) {
     }
 });
 
-app.use(require('./routes/index-routes.js'));
+// app.use(require('./routes/index-routes.js'));
 app.use(require('./routes/admin-routes.js'));
+app.use(require('./routes/student-routes.js'));
 
 /*
 app.use(function*(){
