@@ -1,0 +1,49 @@
+<!doctype html>
+<head>
+  <title>Admin's index page</title>
+</head>
+<body>
+  {{>teachernavpartial}}
+
+  <hr>
+<h1> Subject Name </h1>
+{{Subjectname}}
+ 
+ <br>
+
+<h1> Questions </h1>
+
+<br>
+{{#if questions}}
+
+  <table>
+ {{#questions}}
+
+
+    <tr >
+      <td>{{Question}}</td>
+    </tr>
+  {{/questions}}
+  </table>
+{{/if}}
+
+<br>
+
+<h1> Students </h1>
+<br>
+{{#if students}}
+
+ {{#students}}
+  <table>
+
+    <tr >
+      <td> {{Studentname}} </td>
+    </tr>
+
+  {{/students}}
+  </table>
+{{/if}}
+
+</body>
+</html>
+

@@ -127,6 +127,7 @@ app.use(function* authSecureRoutes(next) {
 // app.use(require('./routes/index-routes.js'));
 app.use(require('./routes/admin-routes.js'));
 app.use(require('./routes/student-routes.js'));
+app.use(require('./routes/teacher-routes.js'));
 
 /*
 app.use(function*(){

@@ -37,7 +37,9 @@ handler.postLogin = function* postLogin(next) {
 
                 // if we were provided with a redirect URL after the /login, redirect there, otherwise /
                 let url = ctx.captures[0] ? ctx.captures[0] : '/';
+                
                 url += ctx.request.body['role'];
+                ctx.body = user;
                 ctx.redirect(url);
             } else {
                 // login failed: redisplay login page with login fail message

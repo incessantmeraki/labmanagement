@@ -14,7 +14,7 @@
 
     {{#subjects}}
     <tr id="{{SubjectId}}">
-      <td><a href="/student/{{../StudentId}}/subjects/{{SubjectId}}">{{Subjectname}}</a></td>
+      <td><a href="/student/{{../StudentId}}/subject/{{SubjectId}}">{{Subjectname}}</a></td>
     </tr>
 
     {{/subjects}}
