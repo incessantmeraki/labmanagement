@@ -22,7 +22,6 @@ student.main = function*() {
     //setting context to render the view
     const context = result[0][0];
 
-    // context.teams = teams;
     this.redirect('/student/'+result[0][0].StudentId);
 };
 

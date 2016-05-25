@@ -1,0 +1,76 @@
+create table User (
+  UserId integer unsigned not null auto_increment,
+  Email text not null,
+  Password text,
+  Role text,
+  primary key (UserId),
+  unique key Email (Email(24))
+)engine=InnoDB charset=utf8;
+
+
+create table Student (
+  StudentId integer unsigned not null auto_increment,
+  Firstname text,
+  Lastname text,
+  Semester integer,
+  UserId integer unsigned not null,
+  primary key (StudentId),
+  key UserId (UserId),
+  constraint Fk_Student_User foreign key (UserId) references User (UserId)
+)engine=InnoDB charset=utf8;
+
+
+create table Teacher(
+  TeacherId integer unsigned not null auto_increment,
+  Firstname text,
+  Lastname text,
+  UserId integer unsigned not null,
+  primary key (TeacherId),
+  key UserId (UserId),
+  constraint Fk_Teacher_User foreign key (UserId) references User (UserId)
+)engine=InnoDB charset=utf8;
+
+
+create table Subject(
+  SubjectId integer unsigned not null auto_increment,
+  Subjectname text,
+  primary key (SubjectId)
+)engine=InnoDB charset=utf8;
+
+
+create table Batch(
+  BatchId integer unsigned not null auto_increment,
+  SubjectId integer unsigned not null,
+  primary key (BatchId),
+  key SubjectId(SubjectId),
+  constraint Fk_Batch_Subject foreign key (SubjectId) references Subject (SubjectId)
+)engine=InnoDB charset=utf8;
+
+
+create table StudentBatch(
+  StudentId integer unsigned not null,
+  BatchId integer unsigned not null,
+  primary key (StudentId, BatchId),
+  constraint Fk_StudentBatch_Student foreign key (StudentId) references Student(StudentId),
+  constraint Fk_StudentBatch_Batch foreign key (BatchId) references Batch (BatchId)
+)engine=InnoDB charset=utf8;
+
+
+create table TeacherBatch(
+  TeacherId integer unsigned not null,
+  BatchId integer unsigned not null,
+  primary key (TeacherId, BatchId),
+  constraint Fk_TeacherBatch_Teacher foreign key (TeacherId) references Teacher (TeacherId),
+  constraint Fk_TeacherBatch_Batch foreign key (BatchId) references Batch (BatchId)
+)engine=InnoDB charset=utf8;
+
+
+create table Question(
+  QuestionId integer unsigned not null auto_increment,
+  Question text,
+  SubjectId integer unsigned not null,
+  primary key (QuestionId),
+  constraint Fk_Question_Subject foreign key (SubjectId) references Subject (SubjectId)
+)engine=InnoDB charset=utf8;
+
+

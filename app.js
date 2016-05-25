@@ -92,16 +92,6 @@ app.use(handlebars({
     partialsDir: './templates/partials',
 }));
 
-// clean up post data - trim & convert blank fields to null
-// app.use(function* cleanPost(next) {
-//     if (this.request.body !== undefined) {
-//         for (const key in this.request.body) {
-//             this.request.body[key] = this.request.body[key].trim();
-//             if (this.request.body[key] == '') this.request.body[key] = null;
-//         }
-//     }
-//     yield next;
-// });
 
 //flash messages
 app.use(flash());
@@ -132,38 +122,6 @@ app.use(require('./routes/admin-routes.js'));
 app.use(require('./routes/student-routes.js'));
 app.use(require('./routes/teacher-routes.js'));
 
-/*
-app.use(function*(){
-    this.body='successfully logged in';
-});
-*/
-
-/*
-// ------------ routing-----------------------//
-
-// serve static files (html, css, js); allow browser to cache for 1 hour (note css/js req'd before login)
-app.use(serve('public', { maxage: 1000*60*60 }));
-
-// public (unsecured) modules first
-
-app.use(require('./routes/index-routes.js'));
-app.use(require('./routes/login-routes.js'));
-
-// verify user has authenticated...
-
-app.use(function* authSecureRoutes(next) {
-    if (this.isAuthenticated()) {
-        yield next;
-    } else {
-        this.redirect('/login'+this.url);
-    }
-});
-
-// ... as subsequent modules require authentication
-
-app.use(require('./routes/members-routes.js'));
-app.use(require('./routes/teams-routes.js'));
-*/
 
 
 // end of the line: 404 status for any resource not found
@@ -176,7 +134,6 @@ app.use(function* notFound(next) {
 
 
 if (!module.parent) {
-    /* eslint no-console: 0 */
     app.listen(process.env.PORT||3000);
     const db = require('./config/db-'+app.env+'.json').db.database;
     console.log(process.version+' listening on port '+(process.env.PORT||3000)+' ('+app.env+'/'+db+')');

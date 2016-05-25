@@ -52,31 +52,4 @@ passport.use(new LocalStrategy(function(username, password, done) {
 }));
 
 
-/* perhaps one day we'll have simpler usage something like:
 
-passport.serializeUser(function*(user) {
-    return user.id;
-});
-
-passport.deserializeUser(function*(id) {
-    return yield User.findById(id);
-});
-
-passport.use(new LocalStrategy(function*(username, password, done) {
-    const users = yield User.getBy('Email', username);
-    if (users.length == 0) return false; // user not found
-    const user = users[0];
-
-    // verify password matches
-    const match = yield bcrypt.compare(password, user.Password);
-    if (!match) return false; // no password match
-
-    // validated ok, return user details
-    return user;
-});
-*/
-
-// for other providers (facebook, twitter, google, etc) see passportjs.org/guide
-
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */

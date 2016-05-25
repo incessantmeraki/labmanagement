@@ -32,10 +32,6 @@ handler.postLogin = function* postLogin(next) {
                 // passport successfully authenticated user: log them in
                 yield ctx.login(user);
 
-                // if 'remember-me', set cookie for 1 month, otherwise set session only
-                // ctx.session.maxAge = ctx.request.body['remember-me'] ? 1000*60*60*24*30 : 0;
-
-                // if we were provided with a redirect URL after the /login, redirect there, otherwise /
                 let url = ctx.captures[0] ? ctx.captures[0] : '/';
                 
                 url += ctx.request.body['role'];

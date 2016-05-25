@@ -12,8 +12,6 @@ const teachers = module.exports = {};
  * Results can be filtered with URL query strings eg /teachers?firstname=alice.
  */
  teachers.list = function*() {
-    // build sql query including any query-string filters; eg ?field1=val1&field2=val2 becomes
-    // "Where field1 = :field1 And field2 = :field2"
     let sql = 'Select * From Teacher';
 
     try {
@@ -73,14 +71,6 @@ const teachers = module.exports = {};
  teachers.view = function*() {
     const teacher = yield Teacher.get(this.params.id);
     if (!teacher) this.throw(404, 'Teacher not found');
-    /*
-    // batch membership
-    const sql = `Select TeamMemberId, TeamId, Name
-                 From TeamMember Inner Join Team Using (TeamId)
-                 Where MemberId = ?`;
-    const result = yield this.db.query(sql, this.params.id);
-    const teams = result[0];
-    */
 
     //Getting login details
     const sql = `Select Email, Password 
@@ -159,24 +149,7 @@ teachers.edit = function*() {
     // member details
     let teacher = yield Teacher.get(this.params.id);
     if (!teacher) this.throw(404, 'Member not found');
-    /*
-    if (this.flash.formdata) member = this.flash.formdata; // failed validation? fill in previous values
 
-    // team membership
-    const sqlT = `Select TeamMemberId, TeamId, Name
-                  From TeamMember Inner Join Team Using (TeamId)
-                  Where MemberId = ?
-                  Order By Name`;
-    const resultT = yield this.db.query(sqlT, this.params.id);
-    member.memberOfTeams = resultT[0];
-
-    // teams this member is not a s of (for add picklist)
-    let teams = member.memberOfTeams.map(function(t) { return t.TeamId; }); // array of id's
-    if (teams.length == 0) teams = [0]; // dummy to satisfy sql 'in' syntax
-    const sqlM = `Select TeamId, Name From Team Where TeamId Not In (${teams.join(',')}) Order By Name`;
-    const resultM = yield this.db.query(sqlM, teams);
-    member.notMemberOfTeams = resultM[0];
-    */
 
     const context = teacher;
     yield this.render('templates/admin-teachers-edit', context);

@@ -1,0 +1,30 @@
+INSERT INTO User VALUES
+  (1, 'admin@admin.com','admin','admin'),
+  (2,'ashwin@student.com','kandel','student'),
+  (3, 'pradeep@teacher.com','pradeep','teacher');
+
+INSERT INTO Student VALUES
+  (1, 'Ashwin', 'Kandel', 6, 2);
+
+INSERT INTO Teacher VALUES
+  (1, 'Pradeep', 'Acharya', 3);
+
+INSERT INTO Subject VALUES
+  (1, 'Web Programming'),
+  (2, 'Computer Networks');
+
+INSERT INTO Batch VALUES
+  (1,1),
+  (2,2);
+
+INSERT INTO StudentBatch VALUES
+  (1,2);
+
+INSERT INTO TeacherBatch VALUES
+  (1,2);
+
+INSERT INTO Question VALUES
+  (1,'Program to do line coding', 2),
+  (2,'Program to check for CRC', 2);
+
+  

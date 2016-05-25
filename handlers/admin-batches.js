@@ -22,7 +22,6 @@ const batches = module.exports = {};
 
     const result2 = yield GLOBAL.db.query(sql2,this.params.id);
     const students = result2[0];
-        // this.body =students;
 
         let result = {
             Teacher:{},
@@ -86,7 +85,6 @@ const batches = module.exports = {};
         const context = { 
             teachers: teachers,
         };
-        // this.body=students;
         yield this.render('templates/admin-batches-edit-teacher', context);
 
     } catch (e) {

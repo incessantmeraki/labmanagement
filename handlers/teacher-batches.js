@@ -16,8 +16,6 @@ const batches = module.exports = {};
  * Results can be filtered with URL query strings eg /batches?firstname=alice.
  */
  batches.list = function*() {
-    // build sql query including any query-string filters; eg ?field1=val1&field2=val2 becomes
-    // "Where field1 = :field1 And field2 = :field2"
     let sql = `Select * From TeacherBatch where teacherId = ? `;
 
     try {

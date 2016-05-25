@@ -2,8 +2,8 @@
     "db": {
         "host":     "localhost",
         "port":     "3306",
-        "database": "labmgment",
-        "user":     "root",
-        "password": "ournepal"
+        "database": "lab_managment",
+        "user":     "{{username}}",
+        "password": "{{password}}"
     }
 }
