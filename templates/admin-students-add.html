@@ -1,26 +1,45 @@
-<!doctype html>
-<head>
-<title>Admin's index page</title>
-</head>
-<body>
- {{>adminnavpartial}}
-  <br>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta charset="utf-8">
+   <title>BMSCE LAB MANAGEMENT SYSTEM</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+  <script src="/jquery.min.js"></script>
+  <script src="/bootstrap.min.js"></script>
+ </head>
+ <body>
+  <div class="navbar" style="background-color:orange;color:white;">
+   <h1 style="font-family:serif">ADD STUDENT ACCOUNT<br/><small>Welcome Admin</small></h1>
 
-  <hr>
-
-<form method="post">
-<br>
-<label> Firstname  <input type="text" name="Firstname" required /> </label>
-<br>
-<label> Lastname <input type="text" name="Lastname" required /> </label>
-<br>
-<label> Semester <input type="text" name="Semester" required /> </label>
-<br>
-<label> Email <input type="email" name="Email" required /> </label>
-<br>
-<input type="submit" value="Add"/>
-</form>
-
+  </div>
+  <div class="jumbotron container" align="center">
+   <form method="post">
+    <div class="input-group input-group-lg">
+     <span class="input-group-addon">FIRST NAME</span>
+     <input type="text" name="Firstname" class="form-control" placeholder="First name here" aria-describedby="sizing-addon1" id="Fname" required />
+     <span class="input-group-addon" id="sizing-addon1" style="color:red;">*</span>
+   </div>
+   <br/>
+   <div class="input-group input-group-lg">
+    <span class="input-group-addon">LAST NAME</span>
+    <input type="text" name="Lastname" class="form-control" placeholder="Last name here" aria-describedby="sizing-addon1" id="Lname" required />
+    <span class="input-group-addon" id="sizing-addon1" style="color:red;">*</span>
+   </div>
+   <br/>
+   <div class="input-group input-group-lg">
+     <span class="input-group-addon">SEM</span>
+     <input type="text" name="Semester" class="form-control" placeholder="Current semester here" aria-describedby="sizing-addon1" id="Sem" required />
+     <span class="input-group-addon" id="sizing-addon1" style="color:red;">*</span>
+   </div>  
+   <br/>
+   <div class="input-group input-group-lg">
+     <span class="input-group-addon">EMAIL</span>
+     <input type="text" name="Email" class="form-control" placeholder="abc@example.com" aria-describedby="sizing-addon1" id="Email" required />
+     <span class="input-group-addon" id="sizing-addon1" style="color:red;">*</span>
+   </div>   
+   <br/>
+   <br/>
+   <input type="submit" style="position:relative;left:-50pt" value="ADD"/>
+  </form>
+ </div>
 </body>
 </html>
-

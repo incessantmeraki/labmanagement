@@ -57,33 +57,32 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-//Look later
  // handle thrown or uncaught exceptions anywhere down the line
-// app.use(function* handleErrors(next) {
-//     try {
+app.use(function* handleErrors(next) {
+    try {
 
-//         yield next;
+        yield next;
 
-//     } catch (e) {
-//         let context = null;
-//         this.status = e.status || 500;
-//         switch (this.status) {
-//             case 404: // Not Found
-//                 context = { msg: e.message=='Not Found'?null:e.message };
-//                 yield this.render('templates/404-not-found', context);
-//                 break;
-//             case 403: // Forbidden
-//             case 409: // Conflict
-//                 yield this.render('templates/400-bad-request', e);
-//                 break;
-//             case 500: // Internal Server Error
-//                 context = app.env=='production' ? {} : { e: e };
-//                 yield this.render('templates/500-internal-server-error', context);
-//                 this.app.emit('error', e, this); // github.com/koajs/examples/blob/master/errors/app.js
-//                 break;
-//         }
-//     }
-// });
+    } catch (e) {
+        let context = null;
+        this.status = e.status || 500;
+        switch (this.status) {
+            case 404: // Not Found
+                context = { msg: e.message=='Not Found'?null:e.message };
+                yield this.render('templates/404-not-found', context);
+                break;
+            case 403: // Forbidden
+            case 409: // Conflict
+                yield this.render('templates/400-bad-request', e);
+                break;
+            case 500: // Internal Server Error
+                context = app.env=='production' ? {} : { e: e };
+                yield this.render('templates/500-internal-server-error', context);
+                this.app.emit('error', e, this); // github.com/koajs/examples/blob/master/errors/app.js
+                break;
+        }
+    }
+});
 
 
 // handlebars templating
@@ -110,6 +109,8 @@ app.use(flash());
 
 // helmet security headers
 app.use(helmet());
+app.use(serve('public', { maxage: 1000*60*60 }));
+
 
 //---------- Routing ----------//
 
@@ -123,6 +124,8 @@ app.use(function* authSecureRoutes(next) {
         this.redirect('/');
     }
 });
+
+
 
 // app.use(require('./routes/index-routes.js'));
 app.use(require('./routes/admin-routes.js'));
@@ -160,7 +163,7 @@ app.use(function* authSecureRoutes(next) {
 
 app.use(require('./routes/members-routes.js'));
 app.use(require('./routes/teams-routes.js'));
-
+*/
 
 
 // end of the line: 404 status for any resource not found
@@ -170,7 +173,7 @@ app.use(function* notFound(next) {
     this.status = 404;
     yield this.render('templates/404-not-found');
 });
-*/
+
 
 if (!module.parent) {
     /* eslint no-console: 0 */

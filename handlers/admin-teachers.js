@@ -97,7 +97,26 @@ const teachers = module.exports = {};
     yield this.render('templates/admin-teachers-view', context);
 };
 
+/**
+ * GET /teachers/:id/delete1 - render delete-member page
+ */
+ teachers.delete1 = function*() {
+     try{
+        let teacher = yield Teacher.get(this.params.id);
+        let userId = teacher.UserId;
+        // this.body = userId;
+        yield this.db.query('Delete From TeacherBatch Where TeacherId = ?',this.params.id);
+        
+        yield Teacher.delete(this.params.id);
+        yield User.delete(userId);
+        this.redirect('/admin/teachers');
 
+    }catch (e) {
+        // stay on same page to report error
+        this.flash = { _error: e.message };
+        this.redirect(this.url);
+    }
+};
 
 /**
  * GET /teachers/:id/delete - render delete-member page

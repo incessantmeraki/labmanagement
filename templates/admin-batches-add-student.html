@@ -1,24 +1,33 @@
-<!doctype html>
-<head>
-  <title>Admin's index page</title>
-</head>
-<body>
- {{>adminnavpartial}}
- <br>
- <hr>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta charset="utf-8">
+   <title>BMSCE LAB MANAGEMENT SYSTEM</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+  <script src="/jquery.min.js"></script>
+  <script src="/bootstrap.min.js"></script>
+   <style type="text/css">
+    th,td{padding:15px;}
+   </style>
+ </head>
+ <body>
+ <div class="navbar" style="background-color:orange;color:white;">
+  <h1 style="font-family:serif">ADD STUDENTS TO BATCH<br/><small>Welcome Admin</small></h1>
 
-<form method="post">
-  
+ </div>
+
+ <div style="position:relative;left:200px">
+ <form method="post">
 <h2> Students </h2>
+<br>
 <label>
 {{#students}}
 <input type="checkbox" name="StudentId" value="{{StudentId}}"/> {{Firstname}} {{Lastname}} <br> 
 {{/students}}
 </label> 
 <br>
+<br>
 <input type="submit" value="Add"/>
 </form>
-
+</div>
 </body>
 </html>
-

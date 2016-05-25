@@ -1,0 +1,30 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta charset="utf-8">
+   <title>BMSCE LAB MANAGEMENT SYSTEM</title>
+   <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+   <!-- jQuery library -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+   <!-- Latest compiled JavaScript -->
+   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ </head>
+ <body>
+ <div class="navbar" style="background-color:orange;color:white;">
+  <h1 style="font-family:serif">EDIT SUBJECT<br/><small id="sem"><small></h1>
+ </div>
+ <div class="jumbotron container">
+  <form  method="post">
+    <div class="input-group input-group-lg">
+     <span class="input-group-addon">SUBJECT NAME</span>
+     <input type="text" value="{{Subjectname}}" name="Subjectname" class="form-control" placeholder="Subject name here" aria-describedby="sizing-addon1" id="Fname" required />
+     <span class="input-group-addon" id="sizing-addon1" style="color:red;">*</span>
+    </div>
+    <br/><br/>
+    <input type="submit" value="UPDATE"/>
+  </form>
+ </div>
+</body>
+

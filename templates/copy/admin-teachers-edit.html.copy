@@ -1,0 +1,22 @@
+<!doctype html>
+<head>
+<title>Admin's index page</title>
+</head>
+<body>
+ {{>adminnavpartial}}
+  <br>
+
+  <hr>
+
+<form method="post">
+<br>
+<label> Firstname  <input type="text" name="Firstname" value="{{Firstname}}" required /> </label>
+<br>
+<label> Lastname <input type="text" name="Lastname" value="{{Lastname}}" required /> </label>
+<br>
+<input type="submit" value="Update"/>
+</form>
+
+</body>
+</html>
+

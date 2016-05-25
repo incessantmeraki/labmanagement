@@ -91,6 +91,25 @@ const students = module.exports = {};
 };
 
 
+/**
+ * GET /students/:id/delete1 - render delete-member page
+ */
+ students.delete1 = function*() {
+     try{
+        let student = yield Student.get(this.params.id);
+        let userId = student.UserId;
+        this.body = userId;
+        yield this.db.query('Delete From StudentBatch Where StudentId = ?',this.params.id);
+        yield Student.delete(this.params.id);
+        yield User.delete(userId);
+        this.redirect('/admin/students');
+
+    }catch (e) {
+        // stay on same page to report error
+        this.flash = { _error: e.message };
+        this.redirect(this.url);
+    }
+};
 
 /**
  * GET /students/:id/delete - render delete-member page

@@ -1,0 +1,25 @@
+<!doctype html>
+<head>
+  <title>Admin's index page</title>
+</head>
+<body>
+ {{>adminnavpartial}}
+ <br>
+ <hr>
+
+<form method="post">
+  <label> Batch Incharge 
+    <select name="TeacherId">
+      {{#teachers}}
+        <option value="{{TeacherId}}"> {{Firstname}} {{Lastname}} </option>
+      {{/teachers}}
+    </select>
+  </label>
+<br>
+<input type="submit" value="Update"/>
+</form>
+
+
+</body>
+</html>
+

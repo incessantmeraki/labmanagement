@@ -24,8 +24,8 @@ router.get('/admin/students',             students.list);
 router.get('/admin/students/add',         students.add);           
 router.post('/admin/students/add',        students.processAdd);   
 router.get('/admin/students/:id',         students.view); 
-router.get('/admin/students/:id/delete',  students.delete);        
-router.post('/admin/students/:id/delete', students.processDelete); 
+router.get('/admin/students/:id/delete',  students.delete1);        
+// router.post('/admin/students/:id/delete', students.processDelete); 
 router.get('/admin/students/:id/edit',    students.edit);         
 router.post('/admin/students/:id/edit',   students.processEdit); 
 
@@ -35,10 +35,10 @@ router.get('/admin/teachers',             teachers.list);
 router.get('/admin/teachers/add',         teachers.add);           
 router.post('/admin/teachers/add',        teachers.processAdd);   
 router.get('/admin/teachers/:id',         teachers.view); 
-router.get('/admin/teachers/:id/delete',  teachers.delete);        
-router.post('/admin/teachers/:id/delete', teachers.processDelete); 
+router.get('/admin/teachers/:id/delete',  teachers.delete1);        
+// router.post('/admin/teachers/:id/delete', teachers.processDelete); 
 router.get('/admin/teachers/:id/edit',    teachers.edit);         
-router.post('/admin/teachers/:id/edit',   students.processEdit); 
+router.post('/admin/teachers/:id/edit',   teachers.processEdit); 
 
 //routes for subjects
 router.get('/admin/subjects',             subjects.list);          

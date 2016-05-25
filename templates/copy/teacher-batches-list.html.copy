@@ -1,0 +1,24 @@
+<!doctype html>
+<head>
+  <title>Admin's index page</title>
+</head>
+<body>
+  {{>teachernavpartial}}
+  <br>
+
+
+  <hr>
+  
+
+  <table>
+
+    {{#batches}}
+    <tr id="{{BatchId}}">
+      <td><a href="/teacher/{{../TeacherId}}/batch/{{BatchId}}">Batch {{BatchId}}</a></td>
+    </tr>
+
+    {{/batches}}
+  </table>
+</body>
+</html>
+

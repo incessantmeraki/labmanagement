@@ -1,0 +1,25 @@
+<!doctype html>
+<head>
+<title> Index page </title>
+</head>
+<body>
+<form method="post" action="/">
+
+<label> User type 
+<select name="role">
+<option> admin </option>
+<option> student </option>
+<option> teacher </option>
+</select>
+</label>
+<br>
+<label> Email id <input type="email" name="username" required /> </label>
+<br>
+<label> Password <input type="password" name="password" required /> </label>
+<br>
+<input type="submit" value="Login"/>
+{{#if @koa.flash.loginfailmsg}}<h1>{{@koa.flash.loginfailmsg}}<h1>{{/if}}
+</form>
+</body>
+</html>
+

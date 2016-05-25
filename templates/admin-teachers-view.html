@@ -1,21 +1,22 @@
-<!doctype html>
-<head>
-  <title>Teacher's Detail</title>
-</head>
-<body>
-  {{>adminnavpartial}}
-  <br>
-  <hr>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta charset="utf-8">
+   <title>BMSCE LAB MANAGEMENT SYSTEM</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+  <script src="/jquery.min.js"></script>
+  <script src="/bootstrap.min.js"></script>
+ </head>
+ <body>
+  <div class="navbar" style="background-color:orange;color:white;">
+   <h1 style="font-family:serif">{{Firstname}} {{Lastname}}<br/></h1>
 
-  <h1> {{Firstname}} {{Lastname}} </h1>
-  <h2> <u>Details </u></h2>
-  <p> <b> First Name: </b> {{Firstname}} </p>
-
-  <h2><u> Login Details</u> </h2>
-  <p> <b> Email : </b> {{Email}} </p>
-  <p> <b> Password:</b> {{Password}}</p>
-
-
+  </div>
+  <div class="jumbotron container" align="left">
+   <h1 style="color:red" align="center">DETAILS</h1><br/><br/>
+   <p>FIRST NAME:<span id="Fname"><b>{{Firstname}}</b></span></p><br/>
+   <p>LAST NAME:<span id="Lname"><b>{{Lastname}}</b></span></p><br/>
+   <p>EMAIL:<span id="Email"><b>{{Email}}</b></span></p><br/>
+   <p>PASSWORD:<span id="Password"><b>{{Password}}</b></span></p><br/>
+  </div>
 </body>
 </html>
-

@@ -1,0 +1,44 @@
+<!doctype html>
+<head>
+  <title>Admin's index page</title>
+</head>
+<body>
+  {{>studentnavpartial}}
+
+  <hr>
+<h1> Questions </h1>
+
+<br>
+{{#if questions}}
+
+  <table>
+ {{#questions}}
+
+
+    <tr >
+      <td>{{Question}}</td>
+    </tr>
+  {{/questions}}
+  </table>
+{{/if}}
+
+<br>
+
+<h1> Batches </h1>
+<br>
+{{#if batches}}
+
+ {{#batches}}
+  <table>
+
+    <tr >
+      <td> Batch {{BatchId}} -- [{{Teachername}}] </td>
+    </tr>
+
+  {{/batches}}
+  </table>
+{{/if}}
+
+</body>
+</html>
+

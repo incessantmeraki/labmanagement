@@ -1,25 +1,48 @@
-<!doctype html>
-<head>
-<title> Index page </title>
-</head>
-<body>
-<form method="post" action="/">
 
-<label> User type 
-<select name="role">
-<option> admin </option>
-<option> student </option>
-<option> teacher </option>
-</select>
-</label>
-<br>
-<label> Email id <input type="email" name="username" required /> </label>
-<br>
-<label> Password <input type="password" name="password" required /> </label>
-<br>
-<input type="submit" value="Login"/>
-{{#if @koa.flash.loginfailmsg}}<h1>{{@koa.flash.loginfailmsg}}<h1>{{/if}}
-</form>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>BMSCE LAB MANAGEMENT SYSTEM</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="bootstrap.min.js"></script>
+</head>
+<body style="background-image:url(body-bg-img.jpg)">
+  <div class="navbar container-fluid" style="background-color:black;">
+   <a href="home.html">
+     <img src="bms_logo.jpg" style="position:absolute;top=10px;left:0px" width="74px">
+     <h2 style="color:white;position:absolute;top:10px;left:130px;font-family:comic-sans-ms">BMSCE LAB MANAGEMENT SYSTEM</h2>
+   </a>
+   <div class="nav navbar-right">
+    <br/><br/>
+    <button type="button" class="btn btn-default" data-toggle="modal" aria-haspopup="true" aria-expanded="false" data-target=".bs-example-modal-lg" style="background-color:red;color:white;border-radius:5cm;">
+     <strong>?</strong></button>
+   </div>
+ </div>
+ <div class="jumbotron container" style="color:white;background-color:blue;padding:5pt;border-radius:10cm;"  align="center">
+   <form method="post" action="/" style="color:red;">
+
+    <label> User type 
+      <select name="role">
+        <option> admin </option>
+        <option> student </option>
+        <option> teacher </option>
+      </select>
+    </label>
+    <br>
+    <label> Email id <input type="email" name="username" required /> </label>
+    <br>
+    <label> Password <input type="password" name="password" required /> </label>
+    <br>
+    <input type="submit" value="Login"/>
+    {{#if @koa.flash.loginfailmsg}}<h1 color="red">{{@koa.flash.loginfailmsg}}<h1>{{/if}}
+  </form>
+</div>
+
 </body>
 </html>
-

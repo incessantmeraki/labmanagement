@@ -1,8 +1,71 @@
-<h1> Admin's Main Page </h1>
-<ul>
-  <li> <a href="/admin/logout" /> Logout </a> </li>
-  <li> <a href="/admin/students" /> Students </a> </li>
-  <li> <a href="/admin/teachers" /> Teachers </a> </li>
-  <li> <a href="/admin/subjects"/> Subjects </a> </li>
-</ul>
-<br>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>BMSCE LAB MANAGEMENT SYSTEM</title>
+  <link rel="stylesheet" href="/bootstrap.min.css">
+  <script src="/jquery.min.js"></script>
+  <script src="/bootstrap.min.js"></script>
+ 
+  <style type="text/css">
+    h5{color:red;}
+  </style>
+</head>
+
+<body style="background-color:LightGray" >
+
+  <div class="navbar container-fluid" style="background-color:orange;">
+    
+    <a href="admin.html">
+      <img src="/bms_logo.jpg" width="118px" style="position:absolute;top=10px;left:0px">
+    </a>
+
+    <div class="container">
+      <h2 style="color:white;position:relative;top:0px;left:70px;">ADMIN PAGE</h2>
+     
+      <div class="nav navbar-right">
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#home"><h6><b>HOME</b></h6></a></li>
+          <li><a data-toggle="tab" href="#student"><h6><b>STUDENTS</b></h6></a></li>
+          <li><a data-toggle="tab" href="#teacher"><h6><b>TEACHERS</b></h6></a></li>
+          <li><a data-toggle="tab" href="#subject"><h6><b>SUBJECTS</b></h6></a></li>
+          <li><a data-toggle="tab" href="#logout"><h6><b>LOGOUT</b></h6></a></li>
+        </ul>
+      </div>
+
+    </div>
+  
+  </div>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active jumbotron">
+      <h1 align="center">WELCOME ADMIN!!<h1>
+    </div>
+
+    <div id="student" class="tab-pane fade in jumbotron container" >
+        <p style="font-size:30pt"><strong>Modify student accounts</strong></p>
+        <p><a target="_blank" href="/admin/students">Click Here</a></p>
+    </div>
+
+    <div id="teacher" class="tab-pane fade in jumbotron container">
+        <p style="font-size:30pt"><strong>Modify teacher accounts</strong></p>
+        <p><a target="_blank" href="/admin/teachers">Click Here</a></p>
+    </div>
+
+    <div id="subject" class="tab-pane fade in jumbotron container">
+        <p style="font-size:30pt"><strong>Modify Subjects, Questions and Batches </strong></p>
+        <p><a target="_blank" href="/admin/subjects">Click Here</a></p>
+    </div>
+
+    <div id="logout" class="tab-pane fade in jumbotron container">
+      <p style="font-size:30pt"><strong>Logout Admin Account</strong></p>
+      <p><a target="_blank" href="/admin/logout">Click Here</a></p>
+    </div>
+  </div>
+
+<script>
+$(document).ready(function(){
+    $(".nav-tabs a").click(function(){
+        $(this).tab('show');
+    });
+});
+</script>

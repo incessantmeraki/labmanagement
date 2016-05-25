@@ -1,43 +1,49 @@
-<!doctype html>
-<head>
-  <title>Admin's index page</title>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>BMSCE LAB MANAGEMENT SYSTEM</title>
+ <link rel="stylesheet" href="/bootstrap.min.css">
+  <script src="/jquery.min.js"></script>
+  <script src="/bootstrap.min.js"></script>
+<style type="text/css">
+  th,td{padding:15px;}
+</style>
 </head>
 <body>
-  {{>studentnavpartial}}
+<div class="navbar" style="background-color:brown;color:white;">
+  <h1 style="font-family:serif">SUBJECT VIEW PAGE<br/><small>Welcome </small></h1>
 
-  <hr>
-<h1> Questions </h1>
+</div>
 
-<br>
-{{#if questions}}
+<hr>
 
-  <table>
- {{#questions}}
+<h1 style="position:relative;left:200px"> Questions  </h1>
+<br/>
+<table style="position:relative;left:200px" id="studtab">
 
 
-    <tr >
-      <td>{{Question}}</td>
-    </tr>
-  {{/questions}}
-  </table>
-{{/if}}
+  {{#questions}}
 
-<br>
+  <tr id="{{QuestionId}}">
+   <th>{{Question}}</th>
+ </tr>
+ {{/questions}}
+</table>
 
-<h1> Batches </h1>
-<br>
-{{#if batches}}
+<br/>
+<br/>
 
- {{#batches}}
-  <table>
+<h1 style="position:relative;left:200px"> Batches  </h1>
+<br/>
+<table style="position:relative;left:200px" id="studtab">
 
-    <tr >
-      <td> Batch {{BatchId}} -- [{{Teachername}}] </td>
-    </tr>
+  {{#batches}}
 
-  {{/batches}}
-  </table>
-{{/if}}
+  <tr >
+   <th> Batch {{BatchId}} -- [{{Teachername}}]</th>
+ </tr>
+ {{/batches}}
+</table>
 
 </body>
 </html>

@@ -1,29 +1,35 @@
-<!doctype html>
-<head>
-  <title>Admin's index page</title>
-</head>
-<body>
-  {{>adminnavpartial}}
-  <br>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta charset="utf-8">
+   <title>BMSCE LAB MANAGEMENT SYSTEM</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+  <script src="/jquery.min.js"></script>
+  <script src="/bootstrap.min.js"></script>
+   <style type="text/css">
+    th,td{padding:15px;}
+   </style>
+ </head>
+ <body>
+ <div class="navbar" style="background-color:orange;color:white;">
+  <h1 style="font-family:serif">SUBJECTS LIST PAGE<br/><small>Welcome Admin</small></h1>
 
 
-  <hr>
-  <ul>
-    <li> <a href="/admin/subjects/add" /> Add  </a> </li>
-  </ul>
-  
+ </div>
+ <table style="position:absolute;left:200px" id="studtab">
+  <tr>
+   <th>VIEW</th>
+   <th>EDIT</th>
+   <th>DELETE</th>
+   <th><a href="/admin/subjects/add">ADD<span class="glyphicon glyphicon-plus" aria-hidden="true"></span></th>
+  </tr>
 
-  <table>
+  {{#subjects}}
 
-    {{#subjects}}
-    <tr id="{{SubjectId}}">
-      <td><a href="/admin/subjects/{{SubjectId}}">{{Subjectname}}</a></td>
-      <td><a href="/admin/subjects/{{SubjectId}}/edit"> Edit </a></td>
-      <td><a href ="/admin/subjects/{{SubjectId}}/delete/"> Delete </a></td>
+    <tr id="{{StudentId}}">
+     <th><a href="/admin/subjects/{{SubjectId}}">{{Subjectname}}</a></th>
+     <td align="center"><a href="/admin/subjects/{{SubjectId}}/edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+     <td align="center"><a href="/admin/subjects/{{SubjectId}}/delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
     </tr>
+  {{/subjects}}
 
-    {{/subjects}}
-  </table>
-</body>
-</html>
-
+ </table>

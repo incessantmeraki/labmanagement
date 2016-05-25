@@ -1,0 +1,30 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta charset="utf-8">
+   <title>BMSCE LAB MANAGEMENT SYSTEM</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+  <script src="/jquery.min.js"></script>
+  <script src="/bootstrap.min.js"></script>
+   <style type="text/css">
+    th,td{padding:15px;}
+   </style>
+ </head>
+ <body>
+ <div class="navbar" style="background-color:brown;color:white;">
+  <h1 style="font-family:serif">SUBJECTS LIST PAGE<br/><small>Welcome</small></h1>
+ 
+
+ </div>
+ <table style="position:absolute;left:200px" id="studtab">
+  <tr>
+   <th>VIEW</th>
+  </tr>
+
+  {{#subjects}}
+
+    <tr id="{{SubjectId}}">
+     <th><a href="/student/{{../StudentId}}/subject/{{SubjectId}}">{{Subjectname}}</a></th>
+    </tr>
+  {{/subjects}}
+
+ </table>

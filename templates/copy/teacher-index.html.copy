@@ -1,0 +1,10 @@
+<!doctype html>
+<head>
+<title>Student's index page</title>
+</head>
+<body>
+  {{>teachernavpartial}}
+  <h1> Welcome {{Firstname}} {{Lastname}}</h1>
+</body>
+</html>
+

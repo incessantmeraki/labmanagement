@@ -1,20 +1,25 @@
-<!doctype html>
-<head>
-<title>Admin's index page</title>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta charset="utf-8">
+   <title>BMSCE LAB MANAGEMENT SYSTEM</title>
+   <link rel="stylesheet" href="/bootstrap.min.css">
+  <script src="/jquery.min.js"></script>
+  <script src="/bootstrap.min.js"></script>
 </head>
 <body>
- {{>adminnavpartial}}
-  <br>
+ <div class="navbar" style="background-color:orange;color:white;">
+  <h1 style="font-family:serif">UPDATE QUESTION<br/><small id="#subject"><small></h1>
 
-  <hr>
-
-<form method="post">
-<br>
-<label> Question  <input type="textbox" name="Question" value={{Question}} required /> </label>
-<br>
-<input type="submit" value="Update"/>
-</form>
-
+ </div>
+ <form method="post">
+ <div class="jumbotron">
+  <div class="input-group input-group-lg">
+     <span class="input-group-addon">Q</span>
+     <input type="text" class="form-control" value={{Question}} name="Question" placeholder="Question here" aria-describedby="sizing-addon1" id="Fname" required />
+     <span class="input-group-addon" id="sizing-addon1" style="color:red;">*</span>
+   </div>
+  <br/><br/>
+  <input type="submit" value="Update"/>
+ </div>
+ </form>
 </body>
-</html>
-

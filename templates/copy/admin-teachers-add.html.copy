@@ -1,0 +1,24 @@
+<!doctype html>
+<head>
+<title>Admin's index page</title>
+</head>
+<body>
+ {{>adminnavpartial}}
+  <br>
+
+  <hr>
+
+<form method="post">
+<br>
+<label> Firstname  <input type="text" name="Firstname" required /> </label>
+<br>
+<label> Lastname <input type="text" name="Lastname" required /> </label>
+<br>
+<label> Email <input type="email" name="Email" required /> </label>
+<br>
+<input type="submit" value="Add"/>
+</form>
+
+</body>
+</html>
+

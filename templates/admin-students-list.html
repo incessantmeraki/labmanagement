@@ -1,28 +1,35 @@
-<!doctype html>
-<head>
-  <title>Admin's index page</title>
-</head>
-<body>
-  {{>adminnavpartial}}
-  <br>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta charset="utf-8">
+   <title>BMSCE LAB MANAGEMENT SYSTEM</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+  <script src="/jquery.min.js"></script>
+  <script src="/bootstrap.min.js"></script>
+   <style type="text/css">
+    th,td{padding:15px;}
+   </style>
+ </head>
+ <body>
+ <div class="navbar" style="background-color:orange;color:white;">
+  <h1 style="font-family:serif">STUDENT LIST PAGE<br/><small>Welcome Admin</small></h1>
 
-  <hr>
-  <ul>
-    <li> <a href="students/add" /> Add  </a> </li>
-  </ol>
 
-  <table>
+ </div>
+ <table style="position:absolute;left:200px" id="studtab">
+  <tr>
+   <th>VIEW</th>
+   <th>EDIT</th>
+   <th>DELETE</th>
+   <th><a href="/admin/students/add">ADD<span class="glyphicon glyphicon-plus" aria-hidden="true"></span></th>
+  </tr>
 
-    {{#students}}
+  {{#students}}
+
     <tr id="{{StudentId}}">
-      <td><a href="/admin/students/{{StudentId}}">{{Firstname}}</a></td>
-      <td><a href="/admin/students/{{StudentId}}">{{Lastname}}</a></td>
-      <td><a href="/admin/students/{{StudentId}}/edit"> Edit </a></td>
-      <td><a href="/admin/students/{{StudentId}}/delete"> Delete </a></td>
+     <th><a href="/admin/students/{{StudentId}}">{{Firstname}} {{Lastname}}</a></th>
+     <td align="center"><a href="/admin/students/{{StudentId}}/edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+     <td align="center"><a href="/admin/students/{{StudentId}}/delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
     </tr>
+  {{/students}}
 
-    {{/students}}
-  </table>
-</body>
-</html>
-
+ </table>

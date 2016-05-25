@@ -1,24 +1,30 @@
-<!doctype html>
-<head>
-  <title>Admin's index page</title>
-</head>
-<body>
-  {{>teachernavpartial}}
-  <br>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta charset="utf-8">
+   <title>BMSCE LAB MANAGEMENT SYSTEM</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+  <script src="/jquery.min.js"></script>
+  <script src="/bootstrap.min.js"></script>
+   <style type="text/css">
+    th,td{padding:15px;}
+   </style>
+ </head>
+ <body>
+ <div class="navbar" style="background-color:green;color:white;">
+  <h1 style="font-family:serif">BATCHES LIST PAGE<br/><small>Welcome</small></h1>
 
 
-  <hr>
-  
+ </div>
+ <table style="position:absolute;left:200px" id="studtab">
+  <tr>
+   <th>VIEW</th>
+  </tr>
 
-  <table>
+  {{#batches}}
 
-    {{#batches}}
     <tr id="{{BatchId}}">
-      <td><a href="/teacher/{{../TeacherId}}/batch/{{BatchId}}">Batch {{BatchId}}</a></td>
+     <th><a href="/teacher/{{../TeacherId}}/batch/{{BatchId}}">Batch {{BatchId}}</a></th>
     </tr>
+  {{/batches}}
 
-    {{/batches}}
-  </table>
-</body>
-</html>
-
+ </table>
