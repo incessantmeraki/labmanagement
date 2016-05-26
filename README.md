@@ -1,5 +1,5 @@
 
-## labmanagement
+## About
 
 A simple web app written using koa.js that performs CRUD operations on a MySQL database.
 
