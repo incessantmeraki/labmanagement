@@ -41,6 +41,7 @@ mysql> source insert
 ```
 
  **Installing Dependencies**
+ 
 After database is set type in following commands to run the web app.
 
 ```bash
